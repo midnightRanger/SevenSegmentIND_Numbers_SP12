@@ -3,7 +3,8 @@
 #define latchPin 4
 #define clockPin 7
 #define dataPin 8
-#define COUNTDOWN_DELAY 1000
+
+#define displayDelay 16
 
 //коды для цифр от 0 до 9 под соответствующими индексами
 int digitArray[] = {~B11111100, ~B01100000, ~B11011010, ~B11110010, ~B01100110, ~B10110110, ~B10111110, ~B11100000, ~B11111110, ~B11110110, ~B00000000};
@@ -51,7 +52,7 @@ void set_number(int num)
   }
 
   long displayingMillis;
-  if (millis() - displayingMillis > 16)
+  if (millis() - displayingMillis > displayDelay)
   {
     for (int i = 0; i < 4; i++)
     {
